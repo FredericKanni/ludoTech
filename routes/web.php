@@ -13,11 +13,21 @@
 
 Route::get('/', 'JeuxController@index');
 
+
+//Route::get('/jeux/{id}', 'JeuxController@jeu')-> where('id' , '[0-9]+');
+Route::get('/jeux/{id}', 'JeuxController@jeu');
+
 Route::prefix('api')->group(function () {
   Route::prefix('jeux')->group(function () {
+
+
+ 
+
       Route::post('add', 'JeuxController@add');
         // Matches The "/api/jeux/add" URL  
 
-        Route::post('add', 'JeuxController@all');
+        Route::post('all', 'JeuxController@all');
+
+        Route::get('del', 'JeuxController@delete');
   });
 });
